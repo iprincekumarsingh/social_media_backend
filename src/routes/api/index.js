@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const api_routes = require('./api`')
+const v1_routes = require('./v1')
 
-router.use('/api', api_routes)
+router.use('/v1', v1_routes)
 
 router.get('/', (req, res) => {
     res.status(200).json({ message: 'Connected123!' });

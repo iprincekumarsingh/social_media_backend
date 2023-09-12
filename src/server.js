@@ -2,13 +2,13 @@ require('dotenv').config();
 const express = require('express')
 
 const app = express();
-const appRoutes = require('./routes')
+const appRoutes = require('./routes/index')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/api',appRoutes)
-app.get("/api/test", (req, res) => {
+app.use('/',appRoutes)
+app.get("/test", (req, res) => {
     res.json({ message: "Welcome to my application.", abc:process.env.DATABASE_URL });
 });
 
