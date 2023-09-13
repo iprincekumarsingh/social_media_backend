@@ -1,5 +1,5 @@
 const ResponseHandler = require("../../utils/ResponseHandler");
-const User = require("../../models/User");
+const User = require("../../models/user.models");
 const generateUserResponse = require("../../utils/UserData");
 exports.GetProfile = async (req, res) => {
   try {
