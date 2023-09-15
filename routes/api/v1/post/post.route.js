@@ -5,10 +5,11 @@ const auth = require("../../../../middlewares/auth.middleware");
 const {
   createPost,
   createPoll,
+  deletePost,
 } = require("../../../../controllers/post/Post.Controller");
 
 // create post route
 router.route("/create").post(auth, upload.single("image"), createPost);
 router.route("/poll").post(auth, upload.single("image"), createPoll);
-
+router.route("/:id").delete(auth, deletePost);
 module.exports = router;

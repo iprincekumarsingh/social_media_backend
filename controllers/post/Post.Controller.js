@@ -38,3 +38,20 @@ exports.createPoll = async (req, res) => {
     j;
   }
 };
+exports.deletePost = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deletedPost = await Post.findByIdAndDelete(id)
+      .then((post) => {
+        if (!post) {
+          return ApiResponse(res, null, "Post not found", 404, false);
+        }
+        return ApiResponse(res, null, "Post deleted successfully", 200, true);
+      })
+      .catch((err) => {
+        return ApiResponse(res, null, err.message, 500, false);
+      });
+  } catch (error) {
+    return ApiResponse(res, null, error.message, 500, false);
+  }
+};
