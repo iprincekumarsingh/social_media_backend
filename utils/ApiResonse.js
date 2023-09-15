@@ -1,12 +1,11 @@
-// responseUtils.js
+const ApiResponse = (res, data, error, statusCode = 200, status = true) => {
+  res.status(statusCode).json({
+    data,
+    error,
+    status,
+  });
+};
 
-function ApiSuccess(data, error, statusCode = 200, status) {
-  return {
-    data: data,
-    error: error,
-    response: statusCode,
-    status: status,
-  };
-}
-
-module.exports = { ApiSuccess };
+module.exports = {
+  ApiResponse,
+};
