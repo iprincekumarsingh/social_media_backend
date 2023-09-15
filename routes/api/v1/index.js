@@ -1,14 +1,14 @@
 const router = require("express").Router();
 
 const authRoute = require("./Auth.route");
-const userRoute = require("./User.route");
+const postRoute = require("./post/post.route");
 
 router.use("/auth", authRoute);
-// router.use("/user", userRoute);
+router.use("/post", postRoute);
 
 
-router.get('/', (req, res) => {
-  res.status(200).json({ message: 'Connected!' });
+router.get("/", (req, res) => {
+  res.status(200).json({ message: "Connected!" });
 });
 
 module.exports = router;

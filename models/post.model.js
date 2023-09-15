@@ -1,6 +1,5 @@
-import mongoose, { Schema } from "mongoose";
-import User from "../models/user.models";
-
+const {mongoose,Schema} = require("mongoose");
+const User = require("../models/user.models");
 const pollOptionSchema = new Schema({
   optionText: String,
   votes: {
@@ -23,11 +22,12 @@ const postSchema = new Schema(
           localPath: String,
         },
       ],
+      
       default: [],
     },
     author: {
       type: Schema.Types.ObjectId,
-      ref: User,
+      ref: "User",
     },
     post_type: {
       type: String,
@@ -51,4 +51,4 @@ const postSchema = new Schema(
   { timestamps: true }
 );
 
-export const Post = mongoose.model("Post", postSchema);
+module.exports = mongoose.model("Post", postSchema);
