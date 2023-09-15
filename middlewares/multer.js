@@ -1,4 +1,4 @@
-import multer from "multer";
+const multer = require('multer')
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -28,8 +28,5 @@ const storage = multer.diskStorage({
     );
   },
 });
-
-// Middleware responsible to read form data and upload the File object to the mentioned path
-export const upload = multer({
-  storage,
-});
+// export default multer({ storage: storage });
+module.exports = multer({ storage: storage });
