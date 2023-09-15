@@ -1,11 +1,17 @@
 const { mongoose, Schema } = require("mongoose");
 const User = require("../models/user.models");
 const pollOptionSchema = new Schema({
-  type: String,
+  optionText: String,
   votes: {
     type: Number,
     default: 0,
   },
+  votedBy: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: User,
+    },
+  ],
 });
 
 const postSchema = new Schema(
