@@ -4,7 +4,7 @@ const authRoute = require("./Auth.route");
 const userRoute = require("./User.route");
 
 router.use("/auth", authRoute);
-router.use("/user", userRoute);
+// router.use("/user", userRoute);
 
 
 router.get('/', (req, res) => {
