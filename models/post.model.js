@@ -1,7 +1,7 @@
-const {mongoose,Schema} = require("mongoose");
+const { mongoose, Schema } = require("mongoose");
 const User = require("../models/user.models");
 const pollOptionSchema = new Schema({
-  optionText: String,
+  type: String,
   votes: {
     type: Number,
     default: 0,
@@ -22,7 +22,7 @@ const postSchema = new Schema(
           localPath: String,
         },
       ],
-      
+
       default: [],
     },
     author: {
