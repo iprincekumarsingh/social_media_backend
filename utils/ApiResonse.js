@@ -1,11 +1,17 @@
-const ApiResponse = (res, data, error, statusCode = 200, status = true) => {
-  res.status(statusCode).json({
-    data,
-    error,
-    status,
-  });
-};
 
-module.exports = {
-  ApiResponse,
-};
+function ApiResponse(
+  res,
+  data = null,
+  error = null,
+  statusCode = 400,
+  status = false
+) {
+  res.status(statusCode).json({
+    data: data,
+    error: error,
+    statusCode: statusCode,
+    status: status,
+  });
+}
+
+module.exports = { ApiResponse };
