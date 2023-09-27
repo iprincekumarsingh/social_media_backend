@@ -1,10 +1,12 @@
 const router = require("express").Router();
 
 const auth = require("../../../../middlewares/auth.middleware");
+const upload = require("../../../../middlewares/multer");
 
 // vote on a poll
-const { vote } = require("../../../../controllers/poll/Poll.Controller");
+const { vote,createPoll } = require("../../../../controllers/poll/Poll.Controller");
 
+router.route("/poll").post(auth, upload.single("image"), createPoll);
 router.route("/:id").post(auth, vote);
 
 
