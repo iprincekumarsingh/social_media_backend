@@ -3,10 +3,10 @@ const { ApiResponse } = require("../../utils/ApiResonse");
 
 exports.register = async (req, res) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, email, password,phone } = req.body;
 
     // Check if a user with the same email or username already exists
-    const existingUser = await User.findOne({ $or: [{ email }, { username }] });
+    const existingUser = await User.findOne({ $or: [{ email }, { username },{ phone }] });
 
     if (existingUser) {
       // Check email existence
@@ -17,7 +17,9 @@ exports.register = async (req, res) => {
       if (existingUser.username === username) {
         return ApiResponse(res, null, "Username already exists", 400, false);
       }
-      
+      if(existingUser.phone===phone){
+        return ApiResponse(res, null, "Phone already exists", 400, false);
+      }
     }
 
     // Create a new user
@@ -25,6 +27,7 @@ exports.register = async (req, res) => {
       username: username,
       email: email,
       password: password,
+      phone:phone
     });
 
     // Save the user
