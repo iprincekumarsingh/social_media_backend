@@ -17,6 +17,7 @@ exports.register = async (req, res) => {
       if (existingUser.username === username) {
         return ApiResponse(res, null, "Username already exists", 400, false);
       }
+      
     }
 
     // Create a new user

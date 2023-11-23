@@ -20,13 +20,12 @@ const userSchema = new mongoose.Schema(
     phone: {
       type: String,
       required: false,
-    trim: true,
-      unique: true,
+      trim: true,
+      unique: false,
     },
     username: {
       type: String,
-      required: true,
-     
+      required: false,
       unique: true,
     },
     bluetick: {
